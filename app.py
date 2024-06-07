@@ -55,7 +55,7 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int):
             await manager.broadcast(f"Client #{client_id} says: {data}", add_to_db=True)
     except WebSocketDisconnect:
         manager.disconnect(websocket)
-        await manager.broadcast(f"Client #{client_id} left the chat", add_to_db=True)
+        await manager.broadcast(f"Client #{client_id} left the chat", add_to_db=False)
 
 
 if __name__ == "__main__":
